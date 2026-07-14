@@ -11,7 +11,7 @@ echo.
 :: 1. Verifica la presenza di Python
 python --version >nul 2>&1
 if %errorlevel% neq 0 (
-    echo [ERRORE] Python non è installato o non è presente nel PATH di sistema.
+    echo [ERRORE] Python non e' installato o non e' presente nel PATH di sistema.
     echo Per favore, installa Python (consigliato 3.12) da python.org
     echo e assicurati di spuntare l'opzione "Add Python to PATH" durante l'installazione.
     echo.
