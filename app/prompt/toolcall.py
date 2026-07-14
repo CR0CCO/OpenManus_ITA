@@ -1,5 +1,5 @@
-SYSTEM_PROMPT = "You are an agent that can execute tool calls"
+SYSTEM_PROMPT = "Sei un agente in grado di eseguire chiamate di strumenti"
 
 NEXT_STEP_PROMPT = (
-    "If you want to stop interaction, use `terminate` tool/function call."
+    "Se desideri interrompere l'interazione, utilizza la chiamata dello strumento/funzione `terminate`."
 )

@@ -163,7 +163,7 @@ class BaseAgent(BaseModel, ABC):
     def handle_stuck_state(self):
         """Handle stuck state by adding a prompt to change strategy"""
         stuck_prompt = "\
-        Observed duplicate responses. Consider new strategies and avoid repeating ineffective paths already attempted."
+        Rilevate risposte duplicate. Considera nuove strategie ed evita di ripetere percorsi inefficaci già tentati."
         self.next_step_prompt = f"{stuck_prompt}\n{self.next_step_prompt}"
         logger.warning(f"Agent detected stuck state. Added prompt: {stuck_prompt}")
 

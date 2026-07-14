@@ -1,146 +1,144 @@
+# Strumento di Visualizzazione dei Grafici
 
+Lo strumento di visualizzazione dei grafici genera codice di elaborazione dati tramite Python e infine richiama [@visactor/vmind](https://github.com/VisActor/VMind) per ottenere le specifiche del grafico. Il rendering del grafico è implementato utilizzando [@visactor/vchart](https://github.com/VisActor/VChart).
 
-# Chart Visualization Tool
+## Installazione (Mac / Linux)
 
-The chart visualization tool generates data processing code through Python and ultimately invokes [@visactor/vmind](https://github.com/VisActor/VMind) to obtain chart specifications. Chart rendering is implemented using [@visactor/vchart](https://github.com/VisActor/VChart).
-
-## Installation (Mac / Linux)
-
-1. Install node >= 18
+1. Installa node >= 18
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-# Activate nvm, for example in Bash
+# Attiva nvm, ad esempio in Bash
 source ~/.bashrc
-# Then install the latest stable release of Node
+# Quindi installa l'ultima versione stabile di Node
 nvm install node
-# Activate usage, for example if the latest stable release is 22, then use 22
+# Attiva l'uso, ad esempio se l'ultima versione stabile è la 22, usa 22
 nvm use 22
 ```
 
-2. Install dependencies
+2. Installa le dipendenze
 
 ```bash
-# Navigate to the appropriate location in the current repository
+# Naviga nella posizione appropriata all'interno della repository corrente
 cd app/tool/chart_visualization
 npm install
 ```
 
-## Installation (Windows)
-1. Install nvm-windows
+## Installazione (Windows)
+1. Installa nvm-windows
 
-    Download the latest version `nvm-setup.exe` from the [official GitHub page](https://github.com/coreybutler/nvm-windows?tab=readme-ov-file#readme) and install it.
+    Scarica l'ultima versione di `nvm-setup.exe` dalla [pagina ufficiale di GitHub](https://github.com/coreybutler/nvm-windows?tab=readme-ov-file#readme) e installala.
 
-2. Use nvm to install node
+2. Usa nvm per installare node
 
 ```powershell
-# Then install the latest stable release of Node
+# Installa l'ultima versione stabile di Node
 nvm install node
-# Activate usage, for example if the latest stable release is 22, then use 22
+# Attiva l'uso, ad esempio se l'ultima versione stabile è la 22, usa 22
 nvm use 22
 ```
 
-3. Install dependencies
+3. Installa le dipendenze
 
 ```bash
-# Navigate to the appropriate location in the current repository
+# Naviga nella posizione appropriata all'interno della repository corrente
 cd app/tool/chart_visualization
 npm install
 ```
 
-## Tool
+## Strumenti
 ### python_execute
 
-Execute the necessary parts of data analysis (excluding data visualization) using Python code, including data processing, data summary, report generation, and some general Python script code.
+Esegue le parti necessarie dell'analisi dei dati (esclusa la visualizzazione) tramite codice Python, inclusi l'elaborazione dei dati, il riepilogo dei dati, la generazione di report e codice generico di script Python.
 
 #### Input
 ```typescript
 {
-  // Code type: data processing/data report/other general tasks
+  // Tipo di codice: elaborazione dati / report dati / altre attività generiche
   code_type: "process" | "report" | "others"
-  // Final execution code
+  // Codice finale da eseguire
   code: string;
 }
 ```
 
 #### Output
-Python execution results, including the saving of intermediate files and print output results.
+Risultati dell'esecuzione di Python, compreso il salvataggio dei file intermedi e la stampa dei risultati dell'output.
 
 ### visualization_preparation
 
-A pre-tool for data visualization with two purposes,
+Uno strumento preliminare per la visualizzazione dei dati con due scopi:
 
-#### Data -> Chart
-Used to extract the data needed for analysis (.csv) and the corresponding visualization description from the data, ultimately outputting a JSON configuration file.
+#### Dati -> Grafico
+Utilizzato per estrarre i dati necessari per l'analisi (.csv) e la corrispondente descrizione di visualizzazione dai dati stessi, producendo infine un file di configurazione JSON.
 
-#### Chart + Insight -> Chart
-Select existing charts and corresponding data insights, choose data insights to add to the chart in the form of data annotations, and finally generate a JSON configuration file.
+#### Grafico + Insight -> Grafico
+Seleziona grafici esistenti e i relativi approfondimenti (insight), sceglie quali approfondimenti aggiungere al grafico sotto forma di annotazioni di dati e infine genera un file di configurazione JSON.
 
 #### Input
 ```typescript
 {
-  // Code type: data visualization or data insight addition
+  // Tipo di codice: visualizzazione dati o aggiunta di annotazioni insight
   code_type: "visualization" | "insight"
-  // Python code used to produce the final JSON file
+  // Codice Python utilizzato per produrre il file JSON finale
   code: string;
 }
 ```
 
 #### Output
-A configuration file for data visualization, used for the `data_visualization tool`.
+Un file di configurazione per la visualizzazione dei dati, utilizzato dallo strumento `data_visualization`.
 
 ## data_visualization
 
-Generate specific data visualizations based on the content of `visualization_preparation`.
+Genera visualizzazioni di dati specifiche in base al contenuto di `visualization_preparation`.
 
 ### Input
 ```typescript
 {
-  // Configuration file path
+  // Percorso del file di configurazione
   json_path: string;
-  // Current purpose, data visualization or insight annotation addition
+  // Scopo attuale, visualizzazione dei dati o aggiunta di annotazioni insight
   tool_type: "visualization" | "insight";
-  // Final product png or html; html supports vchart rendering and interaction
+  // Prodotto finale: png o html; html supporta il rendering e l'interazione vchart
   output_type: 'png' | 'html'
-  // Language, currently supports Chinese and English
+  // Lingua, attualmente supporta cinese e inglese
   language: "zh" | "en"
 }
 ```
 
-## VMind Configuration
+## Configurazione di VMind
 
 ### LLM
 
-VMind requires LLM invocation for intelligent chart generation. By default, it uses the `config.llm["default"]` configuration.
+VMind richiede la chiamata a un LLM per la generazione intelligente dei grafici. Di default, utilizza la configurazione `config.llm["default"]`.
 
-### Generation Settings
+### Impostazioni di Generazione
 
-Main configurations include chart dimensions, theme, and generation method:
-### Generation Method
-Default: png. Currently supports automatic selection of `output_type` by LLM based on context.
+Le configurazioni principali includono le dimensioni del grafico, il tema e il metodo di generazione:
+### Metodo di Generazione
+Predefinito: png. Attualmente supporta la selezione automatica di `output_type` da parte dell'LLM in base al contesto.
 
-### Dimensions
-Default dimensions are unspecified. For HTML output, charts fill the entire page by default. For PNG output, defaults to `1000*1000`.
+### Dimensioni
+Le dimensioni predefinite non sono specificate. Per l'output HTML, i grafici riempiono l'intera pagina per impostazione predefinita. Per l'output PNG, il valore predefinito è `1000*1000`.
 
-### Theme
-Default theme: `'light'`. VChart supports multiple themes. See [Themes](https://www.visactor.io/vchart/guide/tutorial_docs/Theme/Theme_Extension).
+### Tema
+Tema predefinito: `'light'`. VChart supporta più temi. Vedi [Temi](https://www.visactor.io/vchart/guide/tutorial_docs/Theme/Theme_Extension).
 
 ## Test
 
-Currently, three tasks of different difficulty levels are set for testing.
+Attualmente, sono impostate tre attività di diversi livelli di difficoltà per il test.
 
-### Simple Chart Generation Task
+### Attività di Generazione di Grafici Semplici
 
-Provide data and specific chart generation requirements, test results, execute the command:
+Fornisce dati e requisiti specifici per la generazione dei grafici, esegue il comando di test:
 ```bash
 python -m app.tool.chart_visualization.test.chart_demo
 ```
-The results should be located under `workspace\visualization`, involving 9 different chart results.
+I risultati dovrebbero trovarsi sotto `workspace\visualization`, coinvolgendo 9 diversi risultati di grafici.
 
-### Simple Data Report Task
+### Attività di Report Dati Semplice
 
-Provide simple raw data analysis requirements, requiring simple processing of the data, execute the command:
+Fornisce requisiti semplici di analisi dei dati grezzi, che richiedono una semplice elaborazione dei dati, esegue il comando:
 ```bash
 python -m app.tool.chart_visualization.test.report_demo
 ```
-The results are also located under `workspace\visualization`.
+Anche questi risultati si trovano sotto `workspace\visualization`.

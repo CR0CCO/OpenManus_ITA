@@ -15,37 +15,37 @@ async def run_flow():
     if config.run_flow_config.use_data_analysis_agent:
         agents["data_analysis"] = DataAnalysis()
     try:
-        prompt = input("Enter your prompt: ")
+        prompt = input("Inserisci il tuo prompt: ")
 
         if prompt.strip().isspace() or not prompt:
-            logger.warning("Empty prompt provided.")
+            logger.warning("Fornito un prompt vuoto.")
             return
 
         flow = FlowFactory.create_flow(
             flow_type=FlowType.PLANNING,
             agents=agents,
         )
-        logger.warning("Processing your request...")
+        logger.warning("Elaborazione della richiesta in corso...")
 
         try:
             start_time = time.time()
             result = await asyncio.wait_for(
                 flow.execute(prompt),
-                timeout=3600,  # 60 minute timeout for the entire execution
+                timeout=3600,  # Timeout di 60 minuti per l'intera esecuzione
             )
             elapsed_time = time.time() - start_time
-            logger.info(f"Request processed in {elapsed_time:.2f} seconds")
+            logger.info(f"Richiesta elaborata in {elapsed_time:.2f} secondi")
             logger.info(result)
         except asyncio.TimeoutError:
-            logger.error("Request processing timed out after 1 hour")
+            logger.error("Tempo di elaborazione della richiesta scaduto dopo 1 ora")
             logger.info(
-                "Operation terminated due to timeout. Please try a simpler request."
+                "Operazione interrotta per timeout. Riprova con una richiesta più semplice."
             )
 
     except KeyboardInterrupt:
-        logger.info("Operation cancelled by user.")
+        logger.info("Operazione annullata dall'utente.")
     except Exception as e:
-        logger.error(f"Error: {str(e)}")
+        logger.error(f"Errore: {str(e)}")
 
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@
   <img src="assets/logo.jpg" width="200"/>
 </p>
 
-English | [中文](README_zh.md) | [한국어](README_ko.md) | [日本語](README_ja.md)
+Italiano | [English](README_en.md) | [中文](README_zh.md) | [한국어](README_ko.md) | [日本語](README_ja.md)
 
 [![GitHub stars](https://img.shields.io/github/stars/FoundationAgents/OpenManus?style=social)](https://github.com/FoundationAgents/OpenManus/stargazers)
 &ensp;
@@ -13,176 +13,175 @@ English | [中文](README_zh.md) | [한국어](README_ko.md) | [日本語](READM
 
 # 👋 OpenManus
 
-Manus is incredible, but OpenManus can achieve any idea without an *Invite Code* 🛫!
+Manus è incredibile, ma OpenManus può realizzare qualsiasi idea senza bisogno di un *Codice d'Invito* 🛫!
 
-Our team members [@Xinbin Liang](https://github.com/mannaandpoem) and [@Jinyu Xiang](https://github.com/XiangJinyu) (core authors), along with [@Zhaoyang Yu](https://github.com/MoshiQAQ), [@Jiayi Zhang](https://github.com/didiforgithub), and [@Sirui Hong](https://github.com/stellaHSR), we are from [@MetaGPT](https://github.com/geekan/MetaGPT). The prototype is launched within 3 hours and we are keeping building!
+I membri del nostro team [@Xinbin Liang](https://github.com/mannaandpoem) e [@Jinyu Xiang](https://github.com/XiangJinyu) (autori principali), insieme a [@Zhaoyang Yu](https://github.com/MoshiQAQ), [@Jiayi Zhang](https://github.com/didiforgithub) e [@Sirui Hong](https://github.com/stellaHSR), provengono da [@MetaGPT](https://github.com/geekan/MetaGPT). Il prototipo è stato lanciato in sole 3 ore e continuiamo a svilupparlo costantemente!
 
-It's a simple implementation, so we welcome any suggestions, contributions, and feedback!
+Si tratta di un'implementazione semplice, quindi accogliamo con favore qualsiasi suggerimento, contributo e feedback!
 
-Enjoy your own agent with OpenManus!
+Goditi il tuo agente personale con OpenManus!
 
-We're also excited to introduce [OpenManus-RL](https://github.com/OpenManus/OpenManus-RL), an open-source project dedicated to reinforcement learning (RL)- based (such as GRPO) tuning methods for LLM agents, developed collaboratively by researchers from UIUC and OpenManus.
+Siamo inoltre entusiasti di presentare [OpenManus-RL](https://github.com/OpenManus/OpenManus-RL), un progetto open-source dedicato a metodi di ottimizzazione (tuning) per agenti LLM basati sul Reinforcement Learning (RL) (come GRPO), sviluppato in collaborazione tra i ricercatori della UIUC e OpenManus.
 
-## Project Demo
+## Demo del Progetto
 
 <video src="https://private-user-images.githubusercontent.com/61239030/420168772-6dcfd0d2-9142-45d9-b74e-d10aa75073c6.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDEzMTgwNTksIm5iZiI6MTc0MTMxNzc1OSwicGF0aCI6Ii82MTIzOTAzMC80MjAxNjg3NzItNmRjZmQwZDItOTE0Mi00NWQ5LWI3NGUtZDEwYWE3NTA3M2M2Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA3VDAzMjIzOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdiZjFkNjlmYWNjMmEzOTliM2Y3M2VlYjgyNDRlZDJmOWE3NWZhZjE1MzhiZWY4YmQ3NjdkNTYwYTU5ZDA2MzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UuHQCgWYkh0OQq9qsUWqGsUbhG3i9jcZDAMeHjLt5T4" data-canonical-src="https://private-user-images.githubusercontent.com/61239030/420168772-6dcfd0d2-9142-45d9-b74e-d10aa75073c6.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDEzMTgwNTksIm5iZiI6MTc0MTMxNzc1OSwicGF0aCI6Ii82MTIzOTAzMC80MjAxNjg3NzItNmRjZmQwZDItOTE0Mi00NWQ5LWI3NGUtZDEwYWE3NTA3M2M2Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA3VDAzMjIzOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdiZjFkNjlmYWNjMmEzOTliM2Y3M2VlYjgyNDRlZDJmOWE3NWZhZjE1MzhiZWY4YmQ3NjdkNTYwYTU5ZDA2MzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UuHQCgWYkh0OQq9qsUWqGsUbhG3i9jcZDAMeHjLt5T4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px; min-height: 200px"></video>
 
-## Installation
+## Installazione
 
-We provide two installation methods. Method 2 (using uv) is recommended for faster installation and better dependency management.
+Forniamo due metodi di installazione. Il Metodo 2 (tramite uv) è consigliato per un'installazione più rapida e una migliore gestione delle dipendenze.
 
-### Method 1: Using conda
+### Metodo 1: Utilizzando Conda
 
-1. Create a new conda environment:
+1. Crea un nuovo ambiente conda:
 
 ```bash
 conda create -n open_manus python=3.12
 conda activate open_manus
 ```
 
-2. Clone the repository:
+2. Clona la repository:
 
 ```bash
-git clone https://github.com/FoundationAgents/OpenManus.git
-cd OpenManus
+git clone https://github.com/CR0CCO/OpenManus_ITA.git
+cd OpenManus_ITA
 ```
 
-3. Install dependencies:
+3. Installa le dipendenze:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Method 2: Using uv (Recommended)
+### Metodo 2: Utilizzando uv (Consigliato)
 
-1. Install uv (A fast Python package installer and resolver):
+1. Installa uv (uno strumento ultraveloce per installare e risolvere pacchetti Python):
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-2. Clone the repository:
+2. Clona la repository:
 
 ```bash
-git clone https://github.com/FoundationAgents/OpenManus.git
-cd OpenManus
+git clone https://github.com/CR0CCO/OpenManus_ITA.git
+cd OpenManus_ITA
 ```
 
-3. Create a new virtual environment and activate it:
+3. Crea un nuovo ambiente virtuale e attivalo:
 
 ```bash
 uv venv --python 3.12
-source .venv/bin/activate  # On Unix/macOS
-# Or on Windows:
+source .venv/bin/activate  # Su Unix/macOS
+# Oppure su Windows:
 # .venv\Scripts\activate
 ```
 
-4. Install dependencies:
+4. Installa le dipendenze:
 
 ```bash
 uv pip install -r requirements.txt
 ```
 
-### Browser Automation Tool (Optional)
+### Strumento di Automazione Browser (Opzionale)
 ```bash
 playwright install
 ```
 
-## Configuration
+## Configurazione
 
-OpenManus requires configuration for the LLM APIs it uses. Follow these steps to set up your configuration:
+OpenManus richiede la configurazione delle API dei modelli LLM utilizzati. Segui questi passaggi per configurare l'ambiente:
 
-1. Create a `config.toml` file in the `config` directory (you can copy from the example):
+1. Crea un file `config.toml` nella directory `config` (puoi copiarlo dall'esempio):
 
 ```bash
 cp config/config.example.toml config/config.toml
 ```
 
-2. Edit `config/config.toml` to add your API keys and customize settings:
+2. Modifica `config/config.toml` per inserire le tue chiavi API e personalizzare le impostazioni:
 
 ```toml
-# Global LLM configuration
+# Configurazione globale dell'LLM
 [llm]
 model = "gpt-4o"
 base_url = "https://api.openai.com/v1"
-api_key = "sk-..."  # Replace with your actual API key
+api_key = "sk-..."  # Sostituisci con la tua chiave API reale
 max_tokens = 4096
 temperature = 0.0
 
-# Optional configuration for specific LLM models
+# Configurazione opzionale per modelli LLM specifici
 [llm.vision]
 model = "gpt-4o"
 base_url = "https://api.openai.com/v1"
-api_key = "sk-..."  # Replace with your actual API key
+api_key = "sk-..."  # Sostituisci con la tua chiave API reale
 ```
 
-## Quick Start
+## Avvio Rapido
 
-One line for run OpenManus:
+Esegui OpenManus con una singola riga di comando:
 
 ```bash
 python main.py
 ```
 
-Then input your idea via terminal!
+Quindi digita la tua richiesta o idea direttamente nel terminale!
 
-For MCP tool version, you can run:
+Per la versione con strumenti MCP, puoi eseguire:
 ```bash
 python run_mcp.py
 ```
 
-For unstable multi-agent version, you also can run:
+Per la versione multi-agente (ancora instabile), puoi eseguire:
 
 ```bash
 python run_flow.py
 ```
 
-### Custom Adding Multiple Agents
+### Aggiunta Personalizzata di Agenti Multipli
 
-Currently, besides the general OpenManus Agent, we have also integrated the DataAnalysis Agent, which is suitable for data analysis and data visualization tasks. You can add this agent to `run_flow` in `config.toml`.
+Attualmente, oltre al generico OpenManus Agent, abbiamo integrato il DataAnalysis Agent, adatto per attività di analisi e visualizzazione dei dati. Puoi aggiungere questo agente a `run_flow` nel file `config.toml`.
 
 ```toml
-# Optional configuration for run-flow
+# Configurazione opzionale per run-flow
 [runflow]
-use_data_analysis_agent = true     # Disabled by default, change to true to activate
+use_data_analysis_agent = true     # Disattivato di default, imposta su true per attivarlo
 ```
-In addition, you need to install the relevant dependencies to ensure the agent runs properly: [Detailed Installation Guide](app/tool/chart_visualization/README.md##Installation)
+Inoltre, è necessario installare le relative dipendenze per garantire il corretto funzionamento dell'agente: [Guida all'installazione dettagliata](app/tool/chart_visualization/README.md##Installation)
 
-## How to contribute
+## Come Contribuire
 
-We welcome any friendly suggestions and helpful contributions! Just create issues or submit pull requests.
+Accogliamo con piacere suggerimenti amichevoli e contributi utili! Basta creare una Issue o inviare una Pull Request.
 
-Or contact @mannaandpoem via 📧email: mannaandpoem@gmail.com
+Oppure contatta @mannaandpoem via 📧email: mannaandpoem@gmail.com
 
-**Note**: Before submitting a pull request, please use the pre-commit tool to check your changes. Run `pre-commit run --all-files` to execute the checks.
+**Nota**: Prima di inviare una pull request, utilizza lo strumento pre-commit per verificare le modifiche. Esegui `pre-commit run --all-files` per avviare i controlli.
 
-## Community Group
-Join our networking group on Feishu and share your experience with other developers!
+## Gruppo Community
+Unisciti al nostro gruppo su Feishu e condividi la tua esperienza con altri sviluppatori!
 
 <div align="center" style="display: flex; gap: 20px;">
     <img src="assets/community_group.jpg" alt="OpenManus 交流群" width="300" />
 </div>
 
-## Star History
+## Cronologia Star
 
 [![Star History Chart](https://api.star-history.com/svg?repos=FoundationAgents/OpenManus&type=Date)](https://star-history.com/#FoundationAgents/OpenManus&Date)
 
-## Sponsors
-Thanks to [PPIO](https://ppinfra.com/user/register?invited_by=OCPKCN&utm_source=github_openmanus&utm_medium=github_readme&utm_campaign=link) for computing source support.
-> PPIO: The most affordable and easily-integrated MaaS and GPU cloud solution.
+## Sponsor
+Si ringrazia [PPIO](https://ppinfra.com/user/register?invited_by=OCPKCN&utm_source=github_openmanus&utm_medium=github_readme&utm_campaign=link) per il supporto alle risorse di calcolo.
+> PPIO: La soluzione cloud GPU e MaaS più economica e facile da integrare.
 
+## Ringraziamenti
 
-## Acknowledgement
+Grazie a [anthropic-computer-use](https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo), [browser-use](https://github.com/browser-use/browser-use) e [crawl4ai](https://github.com/unclecode/crawl4ai) per aver fornito il supporto di base a questo progetto!
 
-Thanks to [anthropic-computer-use](https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo), [browser-use](https://github.com/browser-use/browser-use) and [crawl4ai](https://github.com/unclecode/crawl4ai) for providing basic support for this project!
+Inoltre, siamo grati a [AAAJ](https://github.com/metauto-ai/agent-as-a-judge), [MetaGPT](https://github.com/geekan/MetaGPT), [OpenHands](https://github.com/All-Hands-AI/OpenHands) e [SWE-agent](https://github.com/SWE-agent/SWE-agent).
 
-Additionally, we are grateful to [AAAJ](https://github.com/metauto-ai/agent-as-a-judge), [MetaGPT](https://github.com/geekan/MetaGPT), [OpenHands](https://github.com/All-Hands-AI/OpenHands) and [SWE-agent](https://github.com/SWE-agent/SWE-agent).
+Ringraziamo anche stepfun (阶跃星辰) per il supporto al nostro spazio demo su Hugging Face.
 
-We also thank stepfun(阶跃星辰) for supporting our Hugging Face demo space.
+OpenManus è costruito dai contributori di MetaGPT. Un ringraziamento enorme a questa community di agenti!
 
-OpenManus is built by contributors from MetaGPT. Huge thanks to this agent community!
-
-## Cite
+## Citazione
 ```bibtex
 @misc{openmanus2025,
   author = {Xinbin Liang and Jinyu Xiang and Zhaoyang Yu and Jiayi Zhang and Sirui Hong and Sheng Fan and Xiao Tang and Bang Liu and Yuyu Luo and Chenglin Wu},

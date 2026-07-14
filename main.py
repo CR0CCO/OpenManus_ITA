@@ -6,29 +6,29 @@ from app.logger import logger
 
 
 async def main():
-    # Parse command line arguments
-    parser = argparse.ArgumentParser(description="Run Manus agent with a prompt")
+    # Analizza gli argomenti della riga di comando
+    parser = argparse.ArgumentParser(description="Avvia l'agente Manus con un prompt")
     parser.add_argument(
-        "--prompt", type=str, required=False, help="Input prompt for the agent"
+        "--prompt", type=str, required=False, help="Prompt di input per l'agente"
     )
     args = parser.parse_args()
 
-    # Create and initialize Manus agent
+    # Crea e inizializza l'agente Manus
     agent = await Manus.create()
     try:
-        # Use command line prompt if provided, otherwise ask for input
-        prompt = args.prompt if args.prompt else input("Enter your prompt: ")
+        # Usa il prompt da riga di comando se fornito, altrimenti chiedi l'input
+        prompt = args.prompt if args.prompt else input("Inserisci il tuo prompt: ")
         if not prompt.strip():
-            logger.warning("Empty prompt provided.")
+            logger.warning("Fornito un prompt vuoto.")
             return
 
-        logger.warning("Processing your request...")
+        logger.warning("Elaborazione della richiesta in corso...")
         await agent.run(prompt)
-        logger.info("Request processing completed.")
+        logger.info("Elaborazione della richiesta completata.")
     except KeyboardInterrupt:
-        logger.warning("Operation interrupted.")
+        logger.warning("Operazione interrotta.")
     finally:
-        # Ensure agent resources are cleaned up before exiting
+        # Assicura il rilascio delle risorse dell'agente prima di uscire
         await agent.cleanup()
 
 
